@@ -15,10 +15,12 @@ In order to use the image, it is necessary to accept the terms of the IBM MQ for
 This image is primarily intended to be used as an example base image for your own MQ images.
 
 The docker image exposes:
+
 1. Port 1414 - MQ Listener
 2. Port 1883 - MQTT Listener
 3. Volume '/var/mqm' to persist MQ data and configuration
 4. Volume '/etc/mqm' to provide custom MQSC scripts 
+
 
 ## Running with the default configuration
 
