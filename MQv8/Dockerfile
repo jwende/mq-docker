@@ -40,8 +40,8 @@ ENV MQ_QMGR_CMDLEVEL=801
 
 RUN chmod +x /usr/local/bin/*.sh
 
-EXPOSE 1414
+EXPOSE 1414 1883
 
-VOLUME /var/mqm
+VOLUME ["/var/mqm","/etc/mqm"]
 
 ENTRYPOINT ["mq.sh"]
