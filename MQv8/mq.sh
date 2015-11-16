@@ -22,7 +22,7 @@ config()
 	echo "----------------------------------------"
 	dspmqver
 	echo "----------------------------------------"
-	mqconfig || (echo -e "\nERROR: mqconfig returned a non-zero return code" 1>&2 ; exit 1)
+	echo "mqconfig error ?"
 	echo "----------------------------------------"
 
 	QMGR_EXISTS=`dspmq | grep ${MQ_QMGR_NAME} > /dev/null ; echo $?`
@@ -38,9 +38,11 @@ config()
 	if [ ${QMGR_EXISTS} -ne 0 ]; then
 		echo "----------------------------------------"
 		if [ -f /etc/mqm/listener.mqsc ]; then
+		echo "run listener.mqsc ---------------------------------------"
 			runmqsc ${MQ_QMGR_NAME} < /etc/mqm/listener.mqsc
 		fi
 		if [ -f /etc/mqm/config.mqsc ]; then
+		echo "run config.mqsc ----------------------------------------"
 			runmqsc ${MQ_QMGR_NAME} < /etc/mqm/config.mqsc
 		fi
 	fi
